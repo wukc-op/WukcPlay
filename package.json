@@ -1,5 +1,5 @@
 {
-  "name": "untitled4",
+  "name": "VueDemo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,8 +17,11 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "axios": "^0.27.2",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "vue-router": "^4.0.15",
+    "vuex": "^4.0.2"
   },
   "eslintConfig": {
     "root": true,
