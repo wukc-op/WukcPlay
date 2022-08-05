@@ -5,9 +5,9 @@ function load (component){
 }
 
 const routes = [
-    {path:'/',component: load('HelloWorld')},
     {path:'/page1',component: load('pageA')},
-    {path:'/page2',component: load('pageB')}
+    {path:'/page2',component: load('pageB')},
+    {path:'/',component: load('login')}
 ];
 
 const router = createRouter({
