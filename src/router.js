@@ -1,12 +1,13 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import pageA from '@/components/pageA'
-import pageB from "@/components/pageB";
-import home from "@/components/HelloWorld"
+
+function load (component){
+    return () => import(`components/${component}.vue`)
+}
 
 const routes = [
-    {path:'/',component: home},
-    {path:'/page1',component: pageA},
-    {path:'/page2',component: pageB}
+    {path:'/',component: load('HelloWorld')},
+    {path:'/page1',component: load('pageA')},
+    {path:'/page2',component: load('pageB')}
 ];
 
 const router = createRouter({
