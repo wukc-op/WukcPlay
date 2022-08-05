@@ -13,4 +13,17 @@
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
   </div>
+
 </template>
+<style>
+/* 解决脚手架创建项目 默认不占满整个网页问题*/
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: -8px -8px auto;
+}
+</style>
+
