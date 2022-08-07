@@ -2,7 +2,7 @@
   <div class="loginbody">
     <div class="logindata">
       <div class="logintext">
-        <h2>Welcome 我是盖盖222</h2>
+        <h2>Welcome 我是盖盖</h2>
       </div>
       <div>
         <el-form ref="form" :model="form" :rules="rules">
@@ -48,6 +48,7 @@
 // import { setToken } from "@/request/auth";
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "login",
   data() {
     return {
