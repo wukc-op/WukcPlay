@@ -5,17 +5,17 @@
         <h2>Welcome</h2>
       </div>
       <div>
-        <el-form ref="form" :model="form" :rules="rules">
-          <el-form-item prop="username">
+        <el-form ref="form" :model="form" :rules="rules" show-message>
+          <el-form-item prop="userName">
             <el-input
-                v-model="form.username"
+                v-model="form.userName"
                 clearable
                 placeholder="请输入账号"
             ></el-input>
           </el-form-item>
-          <el-form-item prop="password">
+          <el-form-item prop="passWord">
             <el-input
-                v-model="form.password"
+                v-model="form.passWord"
                 clearable
                 placeholder="请输入密码"
                 show-password
@@ -35,6 +35,7 @@
       </div>
       <div class="butt">
         <el-button type="primary"
+        @click="login('form')"
         >登录</el-button
         >
         <el-button class="shou" @click="register">注册</el-button>
@@ -44,7 +45,8 @@
 </template>
 
 <script>
-// import { login } from "@/api/login";
+import { userLogin } from "@/api/login";
+import local from '@/utils/local'
 // import { setToken } from "@/request/auth";
 
 export default {
@@ -53,16 +55,16 @@ export default {
   data() {
     return {
       form: {
-        password: "",
-        username: "",
+        passWord: "",
+        userName: "",
       },
       checked: false,
       rules: {
-        username: [
+        userName: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           { max: 10, message: "不能大于10个字符", trigger: "blur" },
         ],
-        password: [
+        passWord: [
           { required: true, message: "请输入密码", trigger: "blur" },
           { max: 10, message: "不能大于10个字符", trigger: "blur" },
         ],
@@ -70,12 +72,26 @@ export default {
     };
   },
   mounted() {
-    if(localStorage.getItem("news")){
-      this.form=JSON.parse(localStorage.getItem("news"))
-      this.checked=true
-    }
+    // if(localStorage.getItem("news")){
+    //   this.form=JSON.parse(localStorage.getItem("news"))
+    //   this.checked=true
+    // }
   },
   methods: {
+
+  async login(formName){
+    this.$refs[formName].validate((valid) => {
+          if (!valid) return false;
+        });
+      if(this.form.userName!==''&&this.form.passWord!==''){
+        const res = await userLogin(this.form)
+      // console.log(res,'看看');
+      if(res.code===200){
+         local.set('tk',res.data.token)
+         this.$router.push('/page1')
+      }
+      }
+    },
     // login(form) {
     //   this.$refs[form].validate((valid) => {
     //     if (valid) {
