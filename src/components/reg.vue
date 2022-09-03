@@ -164,5 +164,6 @@ export default {
 }
 .demo-ruleForm{
   width: 100%;
+  /* height: 1; */
 }
 </style>
