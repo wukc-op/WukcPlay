@@ -15,7 +15,7 @@
   </div>
 
 </template>
-<style>
+<style scoped>
 /* 解决脚手架创建项目 默认不占满整个网页问题*/
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -25,5 +25,9 @@
   color: #2c3e50;
   margin: -8px -8px auto;
 } */
+#app{
+  width: 100%;
+  height: 100%;
+}
 </style>
 

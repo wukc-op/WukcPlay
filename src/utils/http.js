@@ -6,7 +6,6 @@
 import axios from "axios";
 import { ElMessage} from "element-plus";
 import local from '@/utils/local'
-
 import router from '@/router/index'
 
 // 2、服务器地址,设置统一的服务器地址 
@@ -27,7 +26,7 @@ axios.interceptors.request.use(config => {
 // 响应拦截器 interceptors ( 接收到数据之前 )
 axios.interceptors.response.use(response => {
     // 拦截到了请求返回的数据
-     console.log(response,999999);
+    //  console.log(response,999999);
     const  {data}  = response
     // 做兼容，后台没有code返回的情况下，直接返回整个response
     if (data.code !== undefined || data.message !== undefined) {
